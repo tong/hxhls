@@ -1,0 +1,12 @@
+{
+    "name": "hls",
+    "version": "0.0.0",
+    "description": "",
+    "tags": ["hls"],
+    "url": "https://github.com/tong/hls",
+    "license": "MIT",
+    "contributors": ["tong"],
+    "releasenote": "See CHANGELOG.md",
+    "classPath" : "src/",
+    "dependencies": {}
+}
