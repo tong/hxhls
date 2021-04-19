@@ -1,4 +1,4 @@
 
-# OM.HLS
+# HXHLS
 
-https://github.com/video-dev/hls.js/
+Haxe type definitions for [hls.js](https://github.com/video-dev/hls.js/)
