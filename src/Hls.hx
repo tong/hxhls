@@ -1,6 +1,4 @@
 
-import haxe.extern.Rest;
-import haxe.extern.EitherType;
 import js.html.MediaElement;
 
 @:native("Hls.ErrorTypes")
@@ -148,15 +146,48 @@ typedef Config =  {
 
 @:native("Hls")
 extern class Hls {
+
     static function isSupported() : Bool;
-    static var version : String;
+    static var version(default,null) : String;
+
     var config : Config;
+
+    var levels(default,never) : Array<Int>;
+    var currentLevel : Int;
+    var nextLevel : Int;
+    var loadLevel : Int;
+    var nextLoadLevel : Int;
+    var firstLevel(default,never) : Int;
+    var startLevel: Int;
+    var autoLevelEnabled(default,never) : Bool;
+    var autoLevelCapping : Bool;
+    var capLevelToPlayerSize : Bool;
+    var bandwidthEstimate(default,never) : Int;
+    
+    var audioTracks : Array<Dynamic>;
+    var audioTrack : Int;
+    var subtitleTracks : Array<Dynamic>;
+    var subtitleTrack : Int;
+    var subtitleDisplay : Bool;
+
+    var liveSyncPosition(default,never) : Int;
+    var latency(default,never) : Int;
+    var maxLatency(default,never) : Int;
+    var targetLatency(default,never) : Int;
+    var drift(default,never) : Int;
+
     function new( ?cfg : Config ) : Void;
+
     function on<T>( eventName : String, handler : T ) : Void;
+
+    function removeLevel( levelIndex : Int, urlId : String ) : Void;
+    
     function loadSource( src : String ) : Void;
     function startLoad( ?startPosition : Int ) : Void;
     function stopLoad() : Void;
+
     function attachMedia( media : MediaElement ) : Void;
     function detachMedia() : Void;
+
     function destroy() : Void;
 }
