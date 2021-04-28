@@ -1,0 +1,5 @@
+--no-output
+-xml haxedoc.xml
+-js _
+-lib hls
+Hls
